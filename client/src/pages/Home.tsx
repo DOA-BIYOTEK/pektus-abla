@@ -81,7 +81,7 @@ export default function Home() {
             </div>
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md">
               <div>
-                <p className="text-2xl sm:text-3xl font-extrabold text-primary">3</p>
+                <p className="text-2xl sm:text-3xl font-extrabold text-primary">4</p>
                 <p className="text-xs sm:text-sm text-muted-foreground font-medium">Tedavi Ürün Grubu</p>
               </div>
               <div>
@@ -204,7 +204,8 @@ export default function Home() {
             </h2>
             <p className="opacity-90 leading-relaxed max-w-2xl">
               Pektus ekskavatum ve karinatum nedir, belirtileri nelerdir, vakum bell ve ortez
-              tedavileri nasıl uygulanır? Hepsini sizin için anlaşılır bir dille anlattık.
+              tedavileri nasıl uygulanır? Rib flare (çıkık kaburga) çözümleri dahil hepsini sizin
+              için anlaşılır bir dille anlattık.
             </p>
           </div>
           <div className="relative flex gap-3 flex-wrap">

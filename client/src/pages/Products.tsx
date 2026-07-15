@@ -32,9 +32,9 @@ export default function Products() {
           </Badge>
           <h1 className="text-3xl sm:text-5xl font-extrabold">Tedavi Ürünleri</h1>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Pektus ekskavatum için farklı boyutlarda vakum bell cihazları ve pektus karinatum için
-            ayarlanabilir kompresyon ortezleri. Tüm ürünler özenle paketlenir ve Türkiye geneline
-            gönderilir.
+            Pektus ekskavatum için 8 boyut seçenekli göğüs vakum sistemleri; pektus karinatum ve rib
+            flare için kişiye özel üretilen ortez ve bandaj sistemleri. Tüm ürünler Sağlık Bakanlığı
+            ÜTS kayıtlıdır, biyomedikal takip danışmanlığıyla birlikte Türkiye geneline gönderilir.
           </p>
         </div>
       </section>

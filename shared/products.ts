@@ -3,9 +3,10 @@ export const BRAND = {
   name: "Pektus Abla",
   slogan: "Pektus'lu Çocukların Ablası",
   logoUrl: "/manus-storage/pektus-abla-logo_b99c9be9.png",
-  phone: "+90 (555) 123 45 67",
-  email: "info@pektusabla.com",
-  address: "İstanbul, Türkiye",
+  phone: "0 (216) 504 93 62",
+  whatsapp: "+90 (546) 887 98 32",
+  email: "info@doabiyoteknolojisaglik.com",
+  address: "Cevizli Mah. Denizer Caddesi No:23 Vemsa Plaza 4/26 Kartal/İstanbul",
   instagram: "https://www.instagram.com/pektusabla",
 } as const;
 

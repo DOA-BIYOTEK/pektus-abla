@@ -36,3 +36,9 @@
 - [x] Görsel editör değişikliklerini doğrulama (duyuru bandı metni, hero açıklaması, istatistikler)
 - [x] Hero'daki bozuk img src'sini düzeltme: KAHRAMAN.jpg görselini yükleyip hero bölümüne entegre etme
 - [x] Yeni checkpoint oluşturup teslim etme
+
+## Katalog Güncellemesi
+- [x] PDF katalogdan gerçek ürün, varyant ve fiyat bilgilerini çıkarma
+- [x] Ürün veritabanını katalogdaki ürün adları, kodları, boyutları ve fiyatlarıyla güncelleme
+- [x] Ürünler ve ana sayfadaki metin/istatistikleri katalogla uyumlu hale getirme (iletişim bilgileri katalogdakiyle güncellendi)
+- [x] Güncellenen katalog için doğrulama yapıp yeni checkpoint oluşturma
