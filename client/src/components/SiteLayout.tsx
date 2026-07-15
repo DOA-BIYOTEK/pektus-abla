@@ -24,7 +24,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <div className="bg-primary text-primary-foreground text-xs sm:text-sm py-1.5">
         <div className="container flex items-center justify-center gap-2 text-center">
           <Heart className="h-3.5 w-3.5 shrink-0 fill-current" />
-          <span>Ameliyatsız tedavi yolculuğunuzda yanınızdayız — Türkiye geneli kargo</span>
+          <span>Pectus tedavi yolculuğunuzda yol arkadaşınız, Pektus Ablanız olarak yanınızdayız...</span>
         </div>
       </div>
 
@@ -173,4 +173,3 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
     </div>
   );
 }
-

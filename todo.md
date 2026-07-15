@@ -31,3 +31,8 @@
 - [x] Vitest testleri (12 test geçti)
 - [x] Görsel doğrulama (ekran görüntüleri)
 - [x] Checkpoint oluşturma ve teslim
+
+## Kullanıcı Düzenlemeleri (2. tur)
+- [x] Görsel editör değişikliklerini doğrulama (duyuru bandı metni, hero açıklaması, istatistikler)
+- [x] Hero'daki bozuk img src'sini düzeltme: KAHRAMAN.jpg görselini yükleyip hero bölümüne entegre etme
+- [x] Yeni checkpoint oluşturup teslim etme

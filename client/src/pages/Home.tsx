@@ -60,8 +60,9 @@ export default function Home() {
             </h1>
             <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl">
               Kunduracı göğsü (pektus ekskavatum) ve güvercin göğsü (pektus karinatum) hakkında
-              güvenilir bilgiye ulaşın; ameliyatsız tedavi sürecinizde kullanılan vakum bell
-              cihazları ve ortezleri kolayca sipariş edin.
+              güvenilir bilgiye ulaşın; ameliyatsız tedavi sürecinizde kullanılan göğüs vakum
+              sistemleri ve göğüs ortez, destek korseleri ürünlerimizi oturduğunuz yerden kolayca
+              sipariş edebilirsiniz.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/urunler">
@@ -80,11 +81,11 @@ export default function Home() {
             </div>
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md">
               <div>
-                <p className="text-2xl sm:text-3xl font-extrabold text-primary">2</p>
+                <p className="text-2xl sm:text-3xl font-extrabold text-primary">3</p>
                 <p className="text-xs sm:text-sm text-muted-foreground font-medium">Tedavi Ürün Grubu</p>
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-extrabold text-primary">6</p>
+                <p className="text-2xl sm:text-3xl font-extrabold text-primary">11</p>
                 <p className="text-xs sm:text-sm text-muted-foreground font-medium">Boyut Seçeneği</p>
               </div>
               <div>
@@ -97,9 +98,9 @@ export default function Home() {
             <div className="relative">
               <div className="absolute -inset-6 bg-primary/10 rounded-[2.5rem] rotate-3" />
               <img
-                src={BRAND.logoUrl}
-                alt="Pektus Abla marka logosu"
-                className="relative w-72 sm:w-96 rounded-[2rem] shadow-xl shadow-primary/15"
+                src="/manus-storage/kahraman_24447971.jpg"
+                alt="Göğüs kafesi süper gücünü gösteren kahraman çocuk illüstrasyonu"
+                className="relative w-72 sm:w-96 rounded-[2rem] shadow-xl shadow-primary/15 object-cover"
               />
             </div>
           </div>
