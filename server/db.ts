@@ -1,6 +1,15 @@
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import {
+  contactMessages,
+  InsertOrder,
+  InsertUser,
+  orderItems,
+  orders,
+  products,
+  productVariants,
+  users,
+} from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +98,125 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+// ---------- Ürünler ----------
+export async function listProducts() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(products).where(eq(products.isActive, true));
+}
+
+export async function getProductBySlug(slug: string) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const rows = await db.select().from(products).where(eq(products.slug, slug)).limit(1);
+  return rows[0];
+}
+
+export async function listVariantsByProductId(productId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db
+    .select()
+    .from(productVariants)
+    .where(eq(productVariants.productId, productId));
+}
+
+export async function listAllVariants() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(productVariants);
+}
+
+// ---------- Siparişler ----------
+export async function createOrder(
+  order: InsertOrder,
+  items: Array<{
+    productId: number;
+    variantId: number | null;
+    productName: string;
+    variantName: string | null;
+    unitPrice: string;
+    quantity: number;
+  }>,
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const [result] = await db.insert(orders).values(order);
+  const orderId = result.insertId;
+  await db.insert(orderItems).values(items.map(i => ({ ...i, orderId })));
+  return orderId;
+}
+
+export async function getOrderById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const rows = await db.select().from(orders).where(eq(orders.id, id)).limit(1);
+  return rows[0];
+}
+
+export async function getOrderByNumber(orderNumber: string) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const rows = await db.select().from(orders).where(eq(orders.orderNumber, orderNumber)).limit(1);
+  return rows[0];
+}
+
+export async function getOrderItems(orderId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(orderItems).where(eq(orderItems.orderId, orderId));
+}
+
+export async function listOrders() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(orders).orderBy(desc(orders.createdAt));
+}
+
+export async function updateOrderStatus(orderId: number, status: typeof orders.$inferSelect.status) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(orders).set({ status }).where(eq(orders.id, orderId));
+}
+
+export async function updateOrderStripeInfo(
+  orderId: number,
+  info: { stripeSessionId?: string; stripePaymentIntentId?: string; status?: typeof orders.$inferSelect.status },
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(orders).set(info).where(eq(orders.id, orderId));
+}
+
+export async function markOrderPaidBySessionId(sessionId: string, paymentIntentId?: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db
+    .update(orders)
+    .set({ status: "odendi", stripePaymentIntentId: paymentIntentId })
+    .where(eq(orders.stripeSessionId, sessionId));
+}
+
+// ---------- İletişim mesajları ----------
+export async function createContactMessage(msg: {
+  name: string;
+  email: string;
+  phone?: string;
+  message: string;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(contactMessages).values(msg);
+}
+
+export async function listContactMessages() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(contactMessages).orderBy(desc(contactMessages.createdAt));
+}
+
+export async function markContactMessageRead(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(contactMessages).set({ isRead: true }).where(eq(contactMessages.id, id));
+}

@@ -3,14 +3,33 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { CartProvider } from "./contexts/CartContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import About from "./pages/About";
+import Admin from "./pages/Admin";
+import Cart from "./pages/Cart";
+import Contact from "./pages/Contact";
+import Faq from "./pages/Faq";
 import Home from "./pages/Home";
+import OrderCancel from "./pages/OrderCancel";
+import OrderSuccess from "./pages/OrderSuccess";
+import ProductDetail from "./pages/ProductDetail";
+import Products from "./pages/Products";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/pektus-hakkinda"} component={About} />
+      <Route path={"/urunler"} component={Products} />
+      <Route path={"/urun/:slug"} component={ProductDetail} />
+      <Route path={"/sepet"} component={Cart} />
+      <Route path={"/siparis-basarili"} component={OrderSuccess} />
+      <Route path={"/siparis-iptal"} component={OrderCancel} />
+      <Route path={"/sss"} component={Faq} />
+      <Route path={"/iletisim"} component={Contact} />
+      <Route path={"/admin"} component={Admin} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
@@ -31,8 +50,10 @@ function App() {
         // switchable
       >
         <TooltipProvider>
-          <Toaster />
-          <Router />
+          <CartProvider>
+            <Toaster />
+            <Router />
+          </CartProvider>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
