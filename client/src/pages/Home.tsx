@@ -67,7 +67,7 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/urunler">
                 <Button size="lg" className="rounded-full px-7 font-bold text-base shadow-lg shadow-primary/25">
-                  Ürünleri İncele <ArrowRight className="h-4 w-4" />
+                  Birlikte Size Uygun Ürünü Seçelim <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
               <Link href="/pektus-hakkinda">
